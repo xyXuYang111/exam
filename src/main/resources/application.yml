@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  resources:
+    static-locations: classpath:/static
+  mvc:
+    static-path-pattern: /**
+  freemarker:
+    cache: false
+    charset: utf-8
+    template-loader-path: classpath:/templates
+    suffix: .html
+  application:
+    name: mongo
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: exam

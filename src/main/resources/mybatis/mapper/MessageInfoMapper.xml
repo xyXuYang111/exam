@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuyang.springboot.exam.dao.MessageInfoMapper">
+
+  <resultMap id="BaseResultMap" type="MessageInfo">
+    <id column="message_id" jdbcType="INTEGER" property="messageId" />
+    <result column="message_content" jdbcType="VARCHAR" property="messageContent" />
+    <result column="message_time" jdbcType="TIMESTAMP" property="messageTime" />
+    <result column="message_name" jdbcType="VARCHAR" property="messageName" />
+    <result column="message_mark" jdbcType="VARCHAR" property="messageMark" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    message_id, message_content, message_time, message_name, message_mark
+  </sql>
+</mapper>
