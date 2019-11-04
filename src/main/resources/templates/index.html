@@ -44,24 +44,15 @@
         <li class="active"><a href="/back/main" target="mainframe">报告</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li><a  href="/back/category/list" target="mainframe">栏目管理</a></li>
-        <li><a href="/back/article/list" target="mainframe">文章管理</a></li>
-        <li><a href="/back/message/list" target="mainframe">留言管理</a></li>
-        <li><a href="/back/user/list?page=1" target="mainframe">用户管理</a></li>
+        <li><a href="/back/categoryList" target="mainframe">栏目管理</a></li>
+        <li><a href="/back/articleList" target="mainframe">文章管理</a></li>
+        <li><a href="/back/messageList" target="mainframe">留言管理</a></li>
+        <li><a href="/back/userList?page=1" target="mainframe">用户管理</a></li>
         <li><a href="/back/login" >退出</a></li>
       </ul>
     </aside>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main"  id="main" style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;">
-     	<iframe  id="mainframe"  name="mainframe" src="/back/main" style="width: 100%;border: 0px;margin: 0px;padding: 0px;"></iframe>
-   			<script type="text/javascript">
-				var height = jQuery(window).height() - 50;
-				jQuery("#mainframe").attr("height", "" + height + "px;");
-				jQuery("aside ul li").click(function(){
-					jQuery("aside ul li").removeClass("active");
-					$(this).addClass("active");
-				});
-				
-			</script>
+     	<iframe  id="mainframe"  name="mainframe" src="/back/main" style="width: 100%;border: 0px;margin: 0px;padding: 0px;height: 100%"/>
     </div>
   </div>
 </section>

@@ -81,7 +81,7 @@ public class MyBatisConfig {
      * @param dataSource
      * @return
      */
-    @Bean(name = "userTransactional")
+    @Bean(name = "transactional")
     public DataSourceTransactionManager workTransactional(
             @Qualifier("userDataSource") DataSource dataSource){
         log.info("配置事务管理");

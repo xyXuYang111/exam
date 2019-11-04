@@ -1,16 +1,21 @@
-package com.xuyang.springboot.exam.dao;
+package com.xuyang.springboot.exam.service;
 
-import com.xuyang.springboot.exam.annotation.MyBatisDao;
 import com.xuyang.springboot.exam.model.CategoryInfo;
 
 import java.util.List;
 
-@MyBatisDao
-public interface CategoryInfoMapper {
+/**
+ * @Auther: xuyang
+ * @Date: 2019/11/5 00:50
+ * @Description:
+ */
+public interface CategoryInfoService {
 
     public CategoryInfo getCategoryInfo(CategoryInfo categoryInfo) throws Exception;
 
     public List<CategoryInfo> getCategoryInfoList(CategoryInfo categoryInfo) throws Exception;
+
+    public List<CategoryInfo> getCategoryInfoList(CategoryInfo categoryInfo, int startPage, int pageSize) throws Exception;
 
     public void insertCategoryInfo(CategoryInfo categoryInfo) throws Exception;
 
