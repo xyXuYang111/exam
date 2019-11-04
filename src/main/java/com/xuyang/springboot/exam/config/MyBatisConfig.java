@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  */
 @Slf4j
 @Configuration
-@MapperScan(value = "com.xuyang.springboot.mysql.dao",
+@MapperScan(value = "com.xuyang.springboot.exam.dao",
         annotationClass = MyBatisDao.class,
         sqlSessionFactoryRef = "userConfigSqlSessionFactory")
 public class MyBatisConfig {
