@@ -8,7 +8,82 @@
     <result column="category_alias" jdbcType="VARCHAR" property="categoryAlias" />
     <result column="category_desc" jdbcType="VARCHAR" property="categoryDesc" />
   </resultMap>
+
   <sql id="Base_Column_List">
     category_id, category_name, category_alias, category_desc
   </sql>
+
+  <select id="getCategoryInfo" parameterType="CategoryInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM CATEGORY_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="categoryId != null">
+        AND CATEGORY_ID = #{categoryId}
+      </if>
+      <if test="categoryName != null">
+        AND CATEGORY_NAME = #{categoryName}
+      </if>
+      <if test="categoryAlias != null">
+        AND CATEGORY_ALIAS = #{categoryAlias}
+      </if>
+      <if test="categoryDesc != null">
+        AND CATEGORY_DESC = #{categoryDesc}
+      </if>
+    </trim>
+  </select>
+
+  <select id="getCategoryInfoList" parameterType="CategoryInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM CATEGORY_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="categoryName != null">
+        AND CATEGORY_NAME = #{categoryName}
+      </if>
+      <if test="categoryAlias != null">
+        AND CATEGORY_ALIAS = #{categoryAlias}
+      </if>
+      <if test="categoryDesc != null">
+        AND CATEGORY_DESC = #{categoryDesc}
+      </if>
+    </trim>
+  </select>
+
+  <insert id="insertCategoryInfo" parameterType="CategoryInfo">
+    INSERT INTO CATEGORY_INFO(
+    CATEGORY_NAME,
+    CATEGORY_ALIAS,
+    CATEGORY_DESC)
+    VALUES(
+   #{categoryName},
+   #{categoryAlias},
+   #{categoryDesc})
+  </insert>
+
+  <update id="updateCategoryInfo" parameterType="CategoryInfo">
+    UPDATE CATEGORY_INFO SET
+    CATEGORY_NAME = #{categoryName},
+    CATEGORY_ALIAS = #{categoryAlias},
+    CATEGORY_DESC = #{categoryDesc}
+    WHERE CATEGORY_ID = #{categoryId}
+  </update>
+
+  <delete id="deleteCategoryInfo" parameterType="CategoryInfo">
+    DELETE FROM CATEGORY_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="categoryId != null">
+        AND CATEGORY_ID = #{categoryId}
+      </if>
+      <if test="categoryName != null">
+        AND CATEGORY_NAME = #{categoryName}
+      </if>
+      <if test="categoryName != null">
+        AND CATEGORY_ALIAS = #{categoryAlias}
+      </if>
+      <if test="categoryName != null">
+        AND CATEGORY_DESC = #{categoryDesc}
+      </if>
+    </trim>
+  </delete>
 </mapper>

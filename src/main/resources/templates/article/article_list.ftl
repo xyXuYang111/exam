@@ -15,23 +15,21 @@
 </head>
 <body class="user-select" style="margin: 0px;padding: 0px;">
 
-      <form action="" method="post" class="form-inline" >
-      	<div>
-      		<ul class="breadcrumb" style="margin: 0px;">
-      			<li>文章管理</li>
-      			<li>文章查询</li>
-      		</ul>
-      	</div>
-   		<div class="row alert alert-info">
-   				<div class="form-group">
-   					<input type="text" name="" class="form-control" placeholder="请输入文章的标题"/>
-   					<input type="submit" value="查询" class="btn btn-info "/>
-   					<a href="/back/article/add" class="btn btn-info ">增加文章</a>
-   				
-   				</div>
-   		</div>
-   
-     
+      <form action="/articleList" method="get" class="form-inline" >
+        <div>
+          <ul class="breadcrumb" style="margin: 0px;">
+            <li>文章管理</li>
+            <li>文章查询</li>
+          </ul>
+        </div>
+        <div class="row alert alert-info">
+          <div class="form-group">
+            <input type="text" name="" class="form-control" placeholder="请输入文章的标题"/>
+            <input type="submit" value="查询" class="btn btn-info "/>
+            <a href="/getArticleAdd" class="btn btn-info ">增加文章</a>
+          </div>
+        </div>
+
         <div class="table-responsive">
           <table class="table table-striped table-hover">
             <thead>
@@ -49,20 +47,20 @@
                 <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
                 <td>这个是栏目</td>
                 <td>2015-12-03</td>
-                <td><a href="article_update.html">修改</a> <a rel="6">删除</a></td>
+                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
               </tr>
                     <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
                 <td>这个是栏目</td>
                 <td>2015-12-03</td>
-                <td><a href="article_update.html">修改</a> <a rel="6">删除</a></td>
+                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
               </tr>        <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
                 <td>这个是栏目</td>
                 <td>2015-12-03</td>
-                <td><a href="article_update.html">修改</a> <a rel="6">删除</a></td>
+                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
               </tr>
             </tbody>
           </table>

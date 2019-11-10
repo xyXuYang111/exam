@@ -24,18 +24,18 @@
   <div class="row">
         <div class="col-md-5">
 
-          <form action="/Category/add" method="post" autocomplete="off">
+          <form action="categoryAdd" method="post" autocomplete="off">
             <div class="form-group">
               <label for="category-name">栏目名称</label>
-              <input type="text" id="category-name" name="name" class="form-control" placeholder="在此处输入栏目名称" required autocomplete="off">
+              <input type="text" id="category-name" name="categoryName" class="form-control" placeholder="在此处输入栏目名称" required autocomplete="off">
               <span class="prompt-text">这将是它在站点上显示的名字。</span> </div>
             <div class="form-group">
               <label for="category-alias">栏目别名</label>
-              <input type="text" id="category-alias" name="alias" class="form-control" placeholder="在此处输入栏目别名" required autocomplete="off">
+              <input type="text" id="category-alias" name="categoryAlias" class="form-control" placeholder="在此处输入栏目别名" required autocomplete="off">
               <span class="prompt-text">“别名”是在URL中使用的别称，它可以令URL更美观。通常使用小写，只能包含字母，数字和连字符（-）。</span> </div>
             <div class="form-group">
               <label for="category-describe">描述</label>
-              <textarea class="form-control" id="category-describe" name="describe" rows="4" autocomplete="off"></textarea>
+              <textarea class="form-control" id="category-describe" name="categoryDesc" rows="4" autocomplete="off"></textarea>
               <span class="prompt-text">描述会出现在网页的description属性中。</span> </div>
             <button class="btn btn-primary" type="submit" name="submit">添加新栏目</button>
           </form>
@@ -53,22 +53,20 @@
                   <th>操作</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>前端技术</td>
-                  <td>web</td>
-                  <td>125</td>
-                  <td><a href="category_update.html">修改</a> <a rel="1">删除</a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>后端程序</td>
-                  <td>program</td>
-                  <td>185</td>
-                  <td><a href="category_update.html">修改</a> <a rel="2">删除</a></td>
-                </tr>
-              </tbody>
+              <#if categoryInfoList ??>
+                <#list categoryInfoList as items>
+                  <tbody>
+                  <tr>
+                    <td>${items_index +1}</td>
+                    <td>${items.categoryName}</td>
+                    <td>${items.categoryAlias}</td>
+                    <td>125</td>
+                    <td><a href="getCategoryUpdate?categoryId=${items.categoryId}">修改</a>
+                      <a href="getCategoryDelete?categoryId=${items.categoryId}">删除</a></td>
+                  </tr>
+                  </tbody>
+                </#list>
+              </#if>
             </table>
             <span class="prompt-text"><strong>注：</strong>删除一个栏目也会删除栏目下的文章和子栏目,请谨慎删除!</span> </div>
         </div>
