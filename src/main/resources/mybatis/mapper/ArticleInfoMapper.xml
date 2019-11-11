@@ -15,7 +15,150 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    article_id, user_id, category_id, article_title, article_content, article_img, article_recom,
-    article_time, article_mark
+    ARTICLE_ID, USER_ID, CATEGORY_ID, ARTICLE_TITLE, ARTICLE_CONTENT, ARTICLE_IMG, ARTICLE_RECOM,
+    ARTICLE_TIME, ARTICLE_MARK
   </sql>
+
+  <select id="getArticleInfo" parameterType="ArticleInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM ARTICLE_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="articleId != null">
+        AND ARTICLE_ID = #{articleId}
+      </if>
+      <if test="userId != null">
+        AND USER_ID = #{userId}
+      </if>
+      <if test="categoryId != null">
+        AND category_id = #{categoryId}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleContent != null">
+        AND article_content = #{articleContent}
+      </if>
+      <if test="articleImg != null">
+        AND article_img = #{articleImg}
+      </if>
+      <if test="articleRecom != null">
+        AND article_recom = #{articleRecom}
+      </if>
+      <if test="articleTime != null">
+        AND article_time = #{articleTime}
+      </if>
+      <if test="articleImg != null">
+        AND article_mark = #{articleMark}
+      </if>
+    </trim>
+  </select>
+
+  <select id="getArticleInfoList" parameterType="ArticleInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM ARTICLE_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="userId != null">
+        AND USER_ID = #{userId}
+      </if>
+      <if test="categoryId != null">
+        AND category_id = #{categoryId}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleContent != null">
+        AND article_content = #{articleContent}
+      </if>
+      <if test="articleImg != null">
+        AND article_img = #{articleImg}
+      </if>
+      <if test="articleRecom != null">
+        AND article_recom = #{articleRecom}
+      </if>
+      <if test="articleTime != null">
+        AND article_time = #{articleTime}
+      </if>
+      <if test="articleImg != null">
+        AND article_mark = #{articleMark}
+      </if>
+    </trim>
+  </select>
+
+  <insert id="insertArticleInfo" parameterType="ArticleInfo">
+    INSERT INTO ARTICLE_INFO(
+    USER_ID,
+    CATEGORY_ID,
+    ARTICLE_TITLE,
+    ARTICLE_CONTENT,
+    ARTICLE_IMG,
+    ARTICLE_RECOM,
+    ARTICLE_TIME,
+    ARTICLE_MARK)
+    VALUES(
+    #{userId},
+    #{categoryId},
+    #{articleTitle},
+    #{articleContent},
+    #{articleImg},
+    #{articleRecom},
+    #{articleTime},
+    #{articleMark})
+  </insert>
+
+  <update id="updateArticleInfo" parameterType="ArticleInfo">
+    UPDATE ARTICLE_INFO SET
+    USER_ID = #{userId},
+    CATEGORY_ID = #{categoryId},
+    ARTICLE_TITLE = #{articleTitle},
+    ARTICLE_CONTENT = #{articleContent},
+    ARTICLE_IMG = #{articleImg},
+    ARTICLE_RECOM = #{articleRecom},
+    ARTICLE_TIME = #{articleTime},
+    ARTICLE_MARK = #{articleMark}
+    WHERE ARTICLE_ID = #{articleId}
+  </update>
+
+  <delete id="deleteArticleInfo" parameterType="ArticleInfo">
+    DELETE FROM ARTICLE_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="articleId != null">
+        AND ARTICLE_ID = #{articleId}
+      </if>
+      <if test="userId != null">
+        AND USER_ID = #{userId}
+      </if>
+      <if test="categoryId != null">
+        AND category_id = #{categoryId}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleTitle != null">
+        AND article_title = #{articleTitle}
+      </if>
+      <if test="articleContent != null">
+        AND article_content = #{articleContent}
+      </if>
+      <if test="articleImg != null">
+        AND article_img = #{articleImg}
+      </if>
+      <if test="articleRecom != null">
+        AND article_recom = #{articleRecom}
+      </if>
+      <if test="articleTime != null">
+        AND article_time = #{articleTime}
+      </if>
+      <if test="articleImg != null">
+        AND article_mark = #{articleMark}
+      </if>
+    </trim>
+  </delete>
 </mapper>

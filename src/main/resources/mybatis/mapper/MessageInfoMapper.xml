@@ -13,4 +13,90 @@
   <sql id="Base_Column_List">
     message_id, message_content, message_time, message_name, message_mark
   </sql>
+
+  <select id="getMessageInfo" parameterType="MessageInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM MESSAGE_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="messageId != null">
+        AND message_id = #{messageId}
+      </if>
+      <if test="messageContent != null">
+        AND message_content = #{messageContent}
+      </if>
+      <if test="messageTime != null">
+        AND message_time = #{messageTime}
+      </if>
+      <if test="messageName != null">
+        AND message_name = #{messageName}
+      </if>
+      <if test="messageMark != null">
+        AND message_mark = #{messageMark}
+      </if>
+    </trim>
+  </select>
+
+  <select id="getMessageInfoList" parameterType="MessageInfo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM MESSAGE_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="messageContent != null">
+        AND message_content = #{messageContent}
+      </if>
+      <if test="messageTime != null">
+        AND message_time = #{messageTime}
+      </if>
+      <if test="messageName != null">
+        AND message_name = #{messageName}
+      </if>
+      <if test="messageMark != null">
+        AND message_mark = #{messageMark}
+      </if>
+    </trim>
+  </select>
+
+  <insert id="insertMessageInfo" parameterType="MessageInfo">
+    INSERT INTO CATEGORY_INFO(
+    MESSAGE_CONTENT,
+    MESSAGE_TIME,
+    MESSAGE_NAME,
+    MESSAGE_MARK)
+    VALUES(
+   #{messageContent},
+   #{messageTime},
+   #{messageName},
+   #{messageMark})
+  </insert>
+
+  <update id="updateMessageInfo" parameterType="MessageInfo">
+    UPDATE CATEGORY_INFO SET
+    MESSAGE_CONTENT = #{messageContent},
+    MESSAGE_TIME = NOW(),
+    MESSAGE_NAME = #{messageName},
+    MESSAGE_MARK = #{messageMark}
+    WHERE message_id = #{messageId}
+  </update>
+
+  <delete id="deleteMessageInfo" parameterType="MessageInfo">
+    DELETE FROM CATEGORY_INFO
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="messageId != null">
+        AND message_id = #{messageId}
+      </if>
+      <if test="messageContent != null">
+        AND message_content = #{messageContent}
+      </if>
+      <if test="messageTime != null">
+        AND message_time = #{messageTime}
+      </if>
+      <if test="messageName != null">
+        AND message_name = #{messageName}
+      </if>
+      <if test="messageMark != null">
+        AND message_mark = #{messageMark}
+      </if>
+    </trim>
+  </delete>
 </mapper>

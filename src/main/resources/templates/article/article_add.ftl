@@ -23,7 +23,7 @@
 </div>
 <br/>
 <div class="row">
-  <form action="/Article/add" method="post" class="add-article-form">
+  <form action="articleAdd" method="post" class="add-article-form">
 
     <div class="col-md-9">
 

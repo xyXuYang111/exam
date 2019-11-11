@@ -62,15 +62,16 @@
 				<li><a href="/back/user/list?page=1&userName=${(userInfo.userName)!}">第一页</a></li>
 				<li><a href="/back/user/list?page=${pageBean.currentPage-1}&userName=${(userInfo.userName)!}">上一页</a>
 				</li>
-			</
-			#if>
-			<#if pageBean.currentPage == pageBean.totalPage>
-			下一页 最末页
-			<#else>
-			<li><a href="/back/user/list?page=${pageBean.currentPage+1}&userName=${(userInfo.userName)!}">下一页</a></li>
-			<li><a href="/back/user/list?page=${pageBean.totalPage}&userName=${(userInfo.userName)!}">最末页</a></li>
-		</
-		#if>
+			</#if>
+				<#if pageBean.currentPage == pageBean.totalPage>
+					下一页 最末页
+				<#else>
+					<li>
+						<a href="/back/user/list?page=${pageBean.currentPage+1}&userName=${(userInfo.userName)!}">下一页</a>
+					</li>
+					<li><a href="/back/user/list?page=${pageBean.totalPage}&userName=${(userInfo.userName)!}">最末页</a>
+					</li>
+				</#if>
 		</ul>
 		</nav>
 	</div>

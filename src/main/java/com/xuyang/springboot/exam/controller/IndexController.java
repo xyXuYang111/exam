@@ -26,12 +26,6 @@ public class IndexController {
         return "main";
     }
 
-    @RequestMapping(value = "messageList", method = RequestMethod.GET)
-    public String messageList(){
-        log.debug("留言管理界面");
-        return "message/message_list";
-    }
-
     @RequestMapping(value = "userList", method = RequestMethod.GET)
     public String userList(){
         log.debug("用户管理界面");

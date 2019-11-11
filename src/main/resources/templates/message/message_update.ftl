@@ -17,10 +17,10 @@
 
 <body class="user-select" style="margin: 0px;padding: 0px;">
  		<h1 class="page-header" style="margin-top: 5px;">修改栏目</h1>
-      <form action="/Category/update" method="post">
+      <form action="/messageInfoUpdate" method="post">
         <div class="form-group">
           <label for="category-name">栏目名称</label>
-          <input type="text" id="category-name" name="name" value="前端技术" class="form-control" placeholder="在此处输入栏目名称" required autocomplete="off">
+          <input type="text" id="category-name" name="messageName" value="${messageName}" class="form-control" placeholder="在此处输入栏目名称" required autocomplete="off">
           <span class="prompt-text">这将是它在站点上显示的名字。</span> </div>
         <div class="form-group">
           <label for="category-alias">栏目别名</label>
@@ -29,12 +29,12 @@
 
         <div class="form-group">
           <label for="category-describe">描述</label>
-          <textarea class="form-control" id="category-describe" name="describe" rows="4" autocomplete="off">这是栏目的描述这是栏目的描述这是栏目的描述这是栏目的描述</textarea>
-          <span class="prompt-text">描述会出现在网页的description属性中。</span> </div>
+          <textarea class="form-control" id="category-describe" name="messageContent" rows="4" autocomplete="off">这是栏目的描述这是栏目的描述这是栏目的描述这是栏目的描述</textarea>
+        </div>
         <button class="btn btn-primary" type="submit" name="submit">更新</button>
       </form>
    
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script>
+<script src="admin/js/bootstrap.min.js"></script>
+<script src="admin/js/admin-scripts.js"></script>
 </body>
 </html>

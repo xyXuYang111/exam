@@ -24,7 +24,7 @@
         </div>
         <div class="row alert alert-info">
           <div class="form-group">
-            <input type="text" name="" class="form-control" placeholder="请输入文章的标题"/>
+            <input type="text" name="articleTitle" class="form-control" placeholder="请输入文章的标题"/>
             <input type="submit" value="查询" class="btn btn-info "/>
             <a href="/getArticleAdd" class="btn btn-info ">增加文章</a>
           </div>
@@ -42,26 +42,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                <td>这个是栏目</td>
-                <td>2015-12-03</td>
-                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
-              </tr>
-                    <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                <td>这个是栏目</td>
-                <td>2015-12-03</td>
-                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
-              </tr>        <tr>
-                <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
-                <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                <td>这个是栏目</td>
-                <td>2015-12-03</td>
-                <td><a href="article_update.ftl">修改</a> <a rel="6">删除</a></td>
-              </tr>
+            <#if articleInfoList ??>
+                <#list articleInfoList as items>
+                  <tr>
+                    <td><input type="checkbox" class="input-control" name="checkbox[]" value="${items.articleId}" /></td>
+                    <td class="article-title">${items.articleTitle}</td>
+                    <td>${items.articleContent}</td>
+                    <td>2015-12-03</td>
+                    <td><a href="getArticleUpdate?articleId=${items.articleId}">修改</a>
+                      <a href="articleDelete?articleId=${items.articleId}">删除</a></td>
+                  </tr>
+                </#list>
+            </#if>
             </tbody>
           </table>
         </div>
